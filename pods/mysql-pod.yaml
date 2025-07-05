@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mysql-pod
+  namespace: mysql-ns
+  labels:
+    app: mysql
+spec:
+  containers:
+  - name: mysql-container
+    image: mysql:8.0
+    env:
+    - name: MYSQL_ROOT_PASSWORD
+      value: hemanshi
+    ports:
+    - containerPort: 3306
