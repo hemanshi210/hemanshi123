@@ -1,36 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add Employee Information</title>
+  <title>Add Employee Information</title>
+  <style>
+    body {
+      background-image: url('/static/{{ image }}');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: Arial, sans-serif;
+      color: black;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 40px;
+      border-radius: 15px;
+      width: 60%;
+      margin: 100px auto;
+      text-align: center;
+    }
+
+    input[type="text"], input[type="number"] {
+      width: 80%;
+      height: 30px;
+      font-size: 14pt;
+      color: grey;
+      margin-bottom: 15px;
+    }
+
+    button {
+      background-color: grey;
+      color: white;
+      height: 45px;
+      width: 250px;
+      font-size: 16px;
+      margin: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    h1 {
+      color: DodgerBlue;
+    }
+
+    a {
+      display: block;
+      margin-top: 30px;
+      color: #333;
+    }
+  </style>
 </head>
-<center>
-	<font color="black" size="4" style="font-family: avenir">
+<body>
+  <div class="container">
+    <h1>{{ group }}</h1>
+    <h3>{{ slogan }}</h3>
 
-		<h1 style="color: DodgerBlue">Employee Database</h1>
-		<body style="background: {{ color }};" >
+    <h2>Employee Database</h2>
 
-			<form action="/addemp" autocomplete="on" method = "POST" enctype="multipart/form-data">
+    <form action="/addemp" method="POST">
+      Employee ID:<br>
+      <input type="number" name="emp_id" required><br>
 
-			
+      First Name:<br>
+      <input type="text" name="first_name" required><br>
 
-		  		Employee ID:<br> <input style="height:25px;font-size:14pt; color:grey;" type="number" name="emp_id" autofocus size="40"><br><br>
+      Last Name:<br>
+      <input type="text" name="last_name" required><br>
 
-		  		First Name:<br> <input style="height:25px;font-size:14pt;color:grey;" type="text" name="first_name" ><br><br>
+      Primary Skills:<br>
+      <input type="text" name="primary_skill" required><br>
 
-		  		Last Name:<br> <input style="height:25px;font-size:14pt;color:grey;" type="text" name="last_name"><br><br>
+      Location:<br>
+      <input type="text" name="location" required><br>
 
-		  		Primary Skills:<br> <input style="height:25px;font-size:14pt;color:grey;" type="text" name="primary_skill"><br><br>
+      <button type="submit">UPDATE DATABASE</button><br>
+      <button type="submit" formaction="/getemp">GET EMPLOYEE INFORMATION</button>
+    </form>
 
-		  		Location:<br> <input style="height:25px;font-size:14pt;color:grey;" type="text" name="location"><br><br>
-
-		  		<button type="submit" style="background: grey; height: 45px; width: 200px; color: white; size: 5; font:oblique;">UPDATE DATABASE</button><br><br>
-		  		<button type="submit" formaction="/getemp" style="background: grey; height: 45px; width: 200px; color:white; font:oblique;">GET EMPLOYEE INFORMATION</button><br><br>
-
-			</form>
-			<br><br><br><br><br><br><br><br>
-            <a href="/about">About Us</a>
-		</body>
-
-	</font>
-</center>
+    <a href="/about">About Us</a>
+  </div>
+</body>
 </html>

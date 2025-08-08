@@ -1,20 +1,34 @@
-<!doctype html>
-<title>Hello from Flask</title>
-<body style="background: {{ color }};"></body>
-<div style="color: #e4e4e4;
-    text-align:  center;
-    height: 90px;
-    vertical-align:  middle;">
-{% if name %}
-  <h1>Hello from {{ name }}!</h1>
-{% else %}
-  <h1>Hello From CLO835!</h1>
-{% endif %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>About Us - CLO835</title>
+  <style>
+    body {
+      background-image: url('/static/{{ image }}');
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      padding-top: 100px;
+    }
 
-  {% if contents %}
-  <textarea rows="10" cols="50">
-    {{ contents }}
-  </textarea>
-  {% endif %}
-
-</div>
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      display: inline-block;
+      padding: 30px;
+      border-radius: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>{{ group }}</h1>
+    <h3>{{ slogan }}</h3>
+    <p>This web application was built for the CLO835 final project.</p>
+    <p>It connects to a MySQL database, runs inside Docker, and is deployed to Amazon EKS.</p>
+    <a href="/">← Back to Home</a>
+  </div>
+</body>
+</html>
